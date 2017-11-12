@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RoofPilot</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div class="container">
+  		<div class="row">
+  			<div class="nav nav-tab">
+  				<li role="presentation" class="pull-right">
+  					<% if !user_signed_in? %>
+  						<%= link_to "sign in", user_session_path %>
+  					<% else %>
+  						<%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+  					<% end %>
+  				</li>
+  			</div>
+  		</div>
+
+
+
+    	<%= yield %>
+    </div>
+  </body>
+</html>
