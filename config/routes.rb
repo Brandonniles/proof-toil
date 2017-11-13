@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'store' => 'welcome#store'
   get 'map' => 'welcome#map'
   get 'busmap' => 'locations#new'
+
+  post 'weather' => 'welcome#weather'
+
   root 'welcome#index'
 
   devise_for :users

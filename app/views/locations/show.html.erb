@@ -4,11 +4,8 @@
 <%= @location.my_location %>
 
 <h2>And the buses are here...</h2>
-<% if @bus_count == 0 %>
-  <p>
-    ...actually there are no buses running right now. I know you probably have Uber tho...
-  </p>
-<% end %>
+
+<div id="bus-map"></div>
 
 <% @nearby_buses.each do |bus| %>
   <p>
@@ -16,7 +13,88 @@
     <strong>Vehicle:</strong> <%= bus["VEHICLE"] %><br />
     <strong>Next Stop:</strong> <%= bus["TIMEPOINT"] %>
   </p>
+
+
+<!-- Our Maps with Javascript-->
+<script>
+
+$(document).ready(function (){
+    function initialize(){
+     var busCoords = new google.maps.LatLng(<%= bus["LATITUDE"] %>, <%= bus["LONGITUDE"] %>);
+      
+      // This is the text for our bus
+      var contentStringBus = "A bus is here!"; 
+
+      // This is the text for our user
+      var contentStringUser = "You are here!";
+
+      var busIcon = {
+       url: 'https://d30y9cdsu7xlg0.cloudfront.net/png/31771-200.png',
+       scaledSize: new google.maps.Size(25, 25)
+     }
+
+
+      // This is the marker that shows where the bus is
+      var busMarker = new google.maps.Marker({
+        position: busCoords,
+        map: map,
+		    animation: google.maps.Animation.DROP,
+		    icon: busIcon
+      });
+
+      // This is the marker for our users position
+      var userMarker = new google.maps.Marker({
+        position: userCoords,
+    	map: map,
+		animation: google.maps.Animation.DROP
+      });
+
+     // Info window and event listener for the bus
+      var infoWindowBus = new google.maps.InfoWindow({
+        content: contentStringBus
+      });
+
+      google.maps.event.addListener(busMarker, 'click', function() {
+        infoWindowBus.open(map, busMarker);
+      });
+
+       // Info window and event listener for the user
+      var infoWindowUser = new google.maps.InfoWindow({
+        content: contentStringUser
+      });
+
+      google.maps.event.addListener(userMarker, 'click', function() {
+        infoWindowUser.open(map, userMarker);
+      });
+
+    }
+  
+  google.maps.event.addDomListener(window, 'load', initialize);
+  });
+		
+</script>
+
+<!-- End maps -->
+
 <% end %>
 
-<%= link_to "You need to update that address? We got you...", edit_location_path(@location) %>
+<% if @bus_count == 0 %>
+  <p>
+    ...actually there are no buses running right now. I know you probably have Uber tho...
+  </p>
+<% else %>
 
+<script>
+	var userCoords = new google.maps.LatLng(<%= @location.latitude %>, <%= @location.longitude %>);
+	var mapOptions = {
+	center: userCoords,
+	zoom: 13,
+	scrollwheel: false
+      };
+		      
+      var map = new google.maps.Map(document.getElementById('bus-map'), mapOptions);
+</script>
+<% end %>
+
+<%= link_to "You need to update that address? We got you...", edit_location_path(@location) %><br/>
+<%= link_to "New address? We got you...", new_location_path(@location) %>
