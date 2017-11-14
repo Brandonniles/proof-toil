@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :products
   resources :locations
 	get 'index' => 'welcome#index'	
   get 'weather' => 'welcome#weather'

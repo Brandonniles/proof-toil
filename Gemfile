@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'carrierwave'
@@ -27,6 +28,8 @@ gem 'font-awesome-rails'
 gem 'geocoder'
 gem 'httparty'
 gem 'figaro'
+gem 'cancancan'
+gem 'pry-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

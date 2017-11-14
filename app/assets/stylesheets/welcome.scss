@@ -12,8 +12,39 @@
 }
 
 .fblock {
-	height: 70px;
+	height: 200px;
+	width: 225px;
 	color: #646661;
-	padding: 20px;
+	margin: 7px;
 	border-radius: 30px;
+
+
+}
+
+.fblock:hover {
+	box-shadow: 10px 10px  5px #888888;
+}
+
+.grows {
+	height: 225px;
+	width: 250;
+}
+
+#grew {
+	height: 200px;
+	width: 225;
+}
+
+#mapb {
+	background-image: url('gmap1.jpg');
+	background-size: cover;
+}
+#weatherb {
+	background-image: url('weather2.png');
+	background-color: contain;
+}
+#shopb {
+	size: 30;
+	border: thick;
+	background-color: cover;
 }

@@ -13,16 +13,16 @@
  *= require_tree .
  *= require_self
  */
-
-@import 'bootstrap-sprockets';
+ 
 @import 'bootstrap';
+@import 'bootstrap-sprockets';
 @import 'font-awesome';
 
 body {
 	background-color: #c7ceb3;
 }
 
-.bus-map {
+#bus-map {
 	height: 400px;
 	width: 500px;
 }

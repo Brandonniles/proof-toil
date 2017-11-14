@@ -15,7 +15,16 @@
   <body>
   	<div class="container">
   		<div class="row">
-  			<div class="nav nav-tab">
+  			<div class="nav nav-tabs">
+          <li role="presentation">
+            <%= link_to 'home', root_path %>
+          </li>
+          <li role="presentation">
+            <%= link_to 'contact' %>
+          </li>
+          <li role="presentation">
+            <%= link_to 'DEVTOOL#NEWPRODUCT', new_product_path %>
+          </li>
   				<li role="presentation" class="pull-right">
   					<% if !user_signed_in? %>
   						<%= link_to "sign in", user_session_path %>
