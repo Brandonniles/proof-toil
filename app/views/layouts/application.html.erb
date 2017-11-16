@@ -22,8 +22,12 @@
           <li role="presentation">
             <%= link_to 'contact' %>
           </li>
+          <!-- vv this is just a temporary tool to speed up population -->
           <li role="presentation">
             <%= link_to 'DEVTOOL#NEWPRODUCT', new_product_path %>
+          </li>
+          <li role="presentation">
+            <%= link_to 'DEVTOOL#ALLPRODUCTS', allproducts_path %>
           </li>
   				<li role="presentation" class="pull-right">
   					<% if !user_signed_in? %>
