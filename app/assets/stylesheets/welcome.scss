@@ -4,25 +4,45 @@
 #indextron {
 	background-color: #c4f433;
 	border-radius: 20px;
-	color: #646661
+	color: #646661;
+	font-size: 70px;
+	
 }
 
 #metext {
 	color: #646661;
 }
 
+/* Grow */
 .fblock {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    margin: 20px;
+    text-align: center;
+	line-height: 200px;
 	height: 200px;
 	width: 225px;
 	color: #646661;
-	margin: 7px;
+	font-size: 60px;
 	border-radius: 30px;
-
+	opacity: .6;
 
 }
 
 .fblock:hover {
-	box-shadow: 10px 10px  5px #888888;
+	opacity: 1;
+}
+
+.fblock:hover,
+.fblock:focus,
+.fblock:active {
+    transform: scale(1.1);
 }
 
 .grows {
@@ -44,7 +64,21 @@
 	background-color: contain;
 }
 #shopb {
-	size: 30;
-	border: thick;
-	background-color: cover;
+
+	background-color:rgba(0, 0, 0, 0.0);
+	border: none
 }
+
+#blogb {
+	background-color:rgba(0, 0, 0, 0.0);
+	border: none;
+}
+
+#sweetpet {
+	color: #4b6347;
+}
+
+a:hover {
+    background-color:rgba(0, 0, 0, 0.0);
+}
+
