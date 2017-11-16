@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'cart/add_to_cart'
+
+  get 'cart/view_order'
+
+  get 'cart/checkout'
+
   resources :products
   resources :locations
   get 'allproducts' => 'storefront#all_items'
@@ -10,7 +16,10 @@ Rails.application.routes.draw do
   get 'store' => 'welcome#store'
   get 'map' => 'welcome#map'
   get 'busmap' => 'locations#new'
-
+  get 'view_order' => 'cart#view_order'
+  get 'checkout' => 'cart#checkout'
+  
+  post 'add_to_cart' => 'cart#add_to_cart'
   post 'weather' => 'welcome#weather'
 
   root 'welcome#index'
