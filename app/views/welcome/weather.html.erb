@@ -1,12 +1,12 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<div class="well">
+		<div class="well weather-well">
 			<h1>Look Up Your Local Forecast</h1>
 			<p>What's the weather like in your city?</p>
 			<div>
 				<%= form_tag weather_path do %>
 				<%= text_field_tag :city, nil, placeholder: "City", class: "form-control" %><br />
-				<%= select_tag :state, options_for_select(@states), prompt: "Please select" %><br />
+				<%= select_tag :state, options_for_select(@states), prompt: "Please select" %><br /><br />
 				<%= submit_tag "Check Weather", class: "btn btn-primary" %>
 				<% end %>
 			</div>
@@ -17,7 +17,7 @@
 <!-- Our response from wunderground's API -->
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<div class="well">
+		<div class="well weather-well">
 
 			<!-- Bring in the instance variable from our controller to display on our index page. -->
 			<!-- Check to make sure @location is not empty or nil and  that the API did not return an error -->
@@ -28,10 +28,13 @@
 				<div class="col-md-7">
 					<p><em>What's the weather like?</em></p>
 					<p>
-						Temperature is: <%= @temp_f %>° / <%= @temp_c %>° 
+						Temperature is: <%= @temp_f %>° / <%= @temp_c %>°
 					</p>
 					<p>
 						Feels like: <%= @real_feel_f %>°
+					</p>
+					<p>
+						Wind: <%= @wind %>
 					</p>
 				</div>
 				<div class="col-md-5">
@@ -45,8 +48,8 @@
 			</div>
 
 			<% else %>
-			
-			<p>Error: Please enter a valid request. <%= @error %> </p> 
+
+			<p>Error: Please enter a valid request. <%= @error %> </p>
 			<% end %>
 		</div>
 	</div>

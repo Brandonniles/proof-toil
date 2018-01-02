@@ -6,9 +6,12 @@
 	border-radius: 20px;
 	color: #646661;
 	font-size: 70px;
-
 }
 
+.weather-well {
+	background-color: #c7ceb3 !important;
+	border-color: #c7ceb3 !important;
+}
 #metext {
 	color: #646661;
 }
@@ -61,12 +64,15 @@
 }
 #weatherb {
 	background-image: url('weather2.png');
-	background-color: contain;
+	background-size: 223px 100px;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 #shopb {
-
-	background-color:rgba(0, 0, 0, 0.0);
-	border: none
+	background-image: url('petimage2.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 #blogb {
